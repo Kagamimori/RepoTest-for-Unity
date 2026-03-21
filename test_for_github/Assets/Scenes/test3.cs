@@ -8,6 +8,7 @@ public class test3 : MonoBehaviour
     void Start()
     {
         print("I dont want this.");
+        print("I dont want this.");
     }
 
     // Update is called once per frame
