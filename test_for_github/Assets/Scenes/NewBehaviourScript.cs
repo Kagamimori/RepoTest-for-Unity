@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class test3 : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-<<<<<<< HEAD
-        print("I dont want this.");
-        print("I dont want this.");
-=======
-        print("I dont want this.")
->>>>>>> parent of 7bb4b5a (5)
+        
     }
 
     // Update is called once per frame
