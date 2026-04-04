@@ -1,0 +1,10 @@
+﻿{
+  "hlsl.preprocessorDefinitions": {
+    "UNITY_UV_STARTS_AT_TOP": "1",
+    "UNITY_COLORSPACE_GAMMA": "0",
+    "SHADER_API_DESKTOP": "1"
+  },
+  "hlsl.additionalIncludeDirectories": [
+    "C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.62f2c1\\Editor\\Data\\CGIncludes"
+  ]
+}
