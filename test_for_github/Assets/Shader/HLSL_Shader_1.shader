@@ -28,13 +28,13 @@ Shader "Unlit/HLSL_Shader_1"//�ļ�����+�ļ���
                 float4 color : COLOR0;
             };
             //�������岻ͬ��ͬ���͵Ĳ���Ҳ�ɻ���������԰�һ����ά����posֱ�Ӹ�����ɫ
-            varyings vert(attribute input)//Ҫ����λ��
+            varyings vert(attributes input)//Ҫ����λ��
             {
                 varyings output;//����ƬԪshader
                 
 
                 output.uv = input.uv;
-                output.normalWS = TransformObjectToWorldNormal(input.normal);
+                // output.normalWS = TransformObjectToWorldNormal(input.normal);
 
                 output.positionCS = float4(input.objPos,0,1);
                 output.color = float4(0,1,0,1);
@@ -42,7 +42,7 @@ Shader "Unlit/HLSL_Shader_1"//�ļ�����+�ļ���
             }
             float4 frag(varyings input) : SV_Target//Ҫ������ɫ//������壬���Ǹ���GPU�������Ҫ��������
             {
-                retrun float4(0,0,1,1);
+                return float4(0,0,1,1);
             }
 
 
