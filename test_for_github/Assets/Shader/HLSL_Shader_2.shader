@@ -26,8 +26,7 @@ Shader "Unlit/HLSL_Shader_2"
             }
 
             float4 frag (varyings input) : SV_Target {
-                varyings output;
-
+                
                 float r = 1;
                 float g = 0;
                 float b = 0;
