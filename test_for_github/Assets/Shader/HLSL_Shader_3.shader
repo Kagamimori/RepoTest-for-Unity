@@ -8,6 +8,8 @@ Shader "Unlit/HLSL_Shader_3"
             #pragma vertex vert
             #pragma fragment frag
 
+            #include "Assets/Shader/sbin.hlsl"
+
             struct attributes{
                 float2 objPos:POSITION;
 
@@ -24,13 +26,23 @@ Shader "Unlit/HLSL_Shader_3"
                 //int i = 0;
                 //switch(i)//支持但不建议使用
 
-                output.pos = float4(input.objPos,0,1);
-                if(output.pos.x < 0){
-                    output.color = float4(1,0,0,1);
+                output.pos = float4(input.objPos,0,1);//可以嵌套使用，当然损耗也会增加
+                float arr[] = {0.4,0.6};
+                float a = Func(arr);
+
+                if(output.pos.x < 0 && output.pos.y < 0){
+                    output.color = float4(a,0,0,1);
                 }
-                else{
+                else if(output.pos.x < 0){
                     output.color = float4(0,1,0,1);
                 }
+                else if(output.pos.y < 0){
+                    output.color = float4(1,1,0,1);
+                }
+                 else{
+                    output.color = float4(0,0,1,1);
+                }
+                
 
                 
                 return output; 
@@ -42,13 +54,18 @@ Shader "Unlit/HLSL_Shader_3"
 
 
             }
-            
+            //关于另外申明的函数，必须要有提前申明或前项申明
+            //需要注意的是，HLSL函数传值默认都是值传递，也就是说改变参数只会改变副本
+            //如果使用了inout这种，就是引用传递，它变我也变
+            //函数也可以传数组 函数里的变量需要初始化
 
 
             ENDHLSL
         }
     }
 }
+//for while if switch都支持 但是最好按规范使用
+//如果循环过多，分支过于复杂，就会报错
 
 /*
 [unroll] / [loop] —— 必须掌握的高频操作
