@@ -42,9 +42,7 @@ Shader "Unlit/HLSL_Shader_3"
                  else{
                     output.color = float4(0,0,1,1);
                 }
-                
-
-                
+           
                 return output; 
 
             }
