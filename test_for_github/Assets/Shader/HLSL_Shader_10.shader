@@ -3,7 +3,8 @@ Shader "Unlit/HLSL_Shader_10"
     properties
     {
         _SpecularColor("SpecularColor",color) = (1,1,1,1)
-        _Metal("Metal",float) = 8
+        _Metal("Metal",Range(0,10)) = 0.1
+      
     }
     SubShader
     {
@@ -50,7 +51,7 @@ Shader "Unlit/HLSL_Shader_10"
                 o.col.rgb += Shade4PointLights(unity_4LightPosX0,unity_4LightPosY0,unity_4LightPosZ0,
                 unity_LightColor[0].rgb,unity_LightColor[1].rgb,unity_LightColor[2].rgb,unity_LightColor[3].rgb,
                 unity_4LightAtten0,
-                Wpos,N);
+                Wpos,N);//unity_4LightAtten0为衰减系数
 
                 //计算镜面反射（金属）
                 float3 I = -UnityWorldSpaceLightDir(Wpos);//光源指向物体，给个-
@@ -67,7 +68,7 @@ Shader "Unlit/HLSL_Shader_10"
             half4 frag (v2f i) : SV_Target
             {
                 
-                return i.col ;//加点环境光
+                return i.col ;
             }
             ENDHLSL
         }
